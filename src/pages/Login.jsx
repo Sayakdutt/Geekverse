@@ -28,7 +28,7 @@ const Login = () => {
             <img
               src={F}
               alt="Bg Img"
-              className=" w-full  2xl:w-64 2xl:h-64 object-cover"
+              className=" w-full  2xl:w-full 2xl:h-full object-cover"
             />
             {/* styling */}
             <div className="flex justify-content-space-between h-1/4 p-5 bg-black gap-5 ">
