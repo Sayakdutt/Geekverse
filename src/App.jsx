@@ -34,6 +34,7 @@ function App() {
     <div data-theme={theme} className="w-full min-h-[100vh]">
       <BrowserRouter>
         <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             {/* <Route path="/profile/:id?" element={<Profile />} /> */}
