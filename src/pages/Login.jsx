@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { TextInput, Loading, CustomButton } from "../components/index";
-
 import { BsShare } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -16,49 +15,55 @@ const Login = () => {
   } = useForm({
     mode: "onChange",
   });
+  const onSubmit = async (data) => {};
   const [errMsg, setErrMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
   return (
-    <div className="bg-slate-950 w-full h-[100vh] flex items-center justify-center p-6">
-      <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-primary rounded-xl overflow-hidden shadow-xl justify-center">
+    <div className="bg-slate-950 w-full h-[100vh] flex items-center justify-center p-10">
+      <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-black rounded-3xl overflow-hidden shadow-xl justify-center">
         {/* LEFT */}
         <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-end bg-black">
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex flex-col items-center justify-center">
             <img
               src={F}
               alt="Bg Img"
               className=" w-full  2xl:w-64 2xl:h-64 object-cover"
             />
             {/* styling */}
-            <div className="absolute flex items-center gap-3 bg-violet right-10 top-30 py-2 px-5 rounded-full text-white">
-              <BsShare size={14} />
-              <span className="text-xs font-medium">Share</span>
-            </div>
-            <div className="absolute flex items-center gap-3 bg-violet text-white left-10 top-10 py-2 px-5 rounded-full">
-              <ImConnection />
-              <span className="text-xs font-medium">Connect</span>
-            </div>
-            <div className="absolute  flex items-center gap-3 text-white bg-violet left-12 bottom-6 py-2 px-5 rounded-full">
-              <AiOutlineInteraction />
-              <span className="text-xs font-medium">Interact</span>
+            <div className="flex justify-content-space-between h-1/4 p-5 bg-black gap-5 ">
+              <div className=" flex items-center gap-3 bg-black border-secondary border-2 py-2 px-5 rounded-full text-white">
+                <BsShare size={14} />
+                <span className="text-xs font-medium">Share</span>
+              </div>
+              <div className=" flex items-center gap-3 bg-black border-secondary border-2 text-white  py-2 px-5 rounded-full">
+                <ImConnection />
+                <span className="text-xs font-medium">Connect</span>
+              </div>
+              <div className="  flex items-center gap-3 text-white bg-black border-secondary border-2  py-2 px-5 rounded-full">
+                <AiOutlineInteraction />
+                <span className="text-xs font-medium">Interact</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT*/}
         <div className="w-1/2 lg:w=1/2 h-full p-10 2xl:px-20 flex flex-col justify-center">
-          <div className="w-full  flex justify-center gap-4 items-center mb-6 mt-12">
+          <div className="w-full  flex justify-center gap-4 items-center mb-6 mt-1">
             <img src="logo.svg" alt="" height={45} width={45} />
             <span className="text-4xl text-violet font-semibold  ">
               Geekverse
             </span>
           </div>
-          <p className="text-ascent-1 text-3xl mt-5 text-base ">Log in</p>
+          <p className="text-ascent-1 text-3xl mt-3 text-base ">Log in</p>
           <span className="text-sm mt-2 text-ascent-2 flex justify-start">
             Welcome back
           </span>
-          <form className="py-8 flex flex-col gap-5">
+          <form
+            className="pb-3 pt-12 flex flex-col gap-5"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             {/* email */}
             <TextInput
               name="email"
@@ -68,7 +73,7 @@ const Login = () => {
               register={register("email", {
                 required: "Email Address is required",
               })}
-              styles="w-full rounded-full"
+              styles="w-full rounded-xl"
               labelStyle="ml-2"
               error={errors.email ? errors.email.message : ""}
             />
@@ -81,7 +86,7 @@ const Login = () => {
               register={register("password", {
                 required: "Password is required",
               })}
-              styles="w-full rounded-full"
+              styles="w-full rounded-xl"
               labelStyle="ml-2"
               error={errors.password ? errors.password.message : ""}
             />
