@@ -22,7 +22,7 @@ const Register = () => {
   const dispatch = useDispatch();
   return (
     <div className="bg-bgColor w-full h-[100vh] flex items-center justify-center p-10">
-      <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-black rounded-3xl overflow-hidden shadow-xl justify-center">
+      <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-black rounded-3xl overflow-hidden shadow-2xl justify-center border-4 border-secondary drop-shadow-2xl">
         {/* LEFT */}
         <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-end bg-black">
           <div className="w-full flex flex-col items-center justify-center">
