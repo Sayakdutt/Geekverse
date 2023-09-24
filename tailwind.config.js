@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/*/.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/*/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       bgColor: "rgb(var(--color-bg) / <alpha-value>)",
@@ -9,6 +9,7 @@ export default {
       blue: "rgb(var(--color-blue) / <alpha-value>)",
       violet: "rgb(var(--color-violet) / <alpha-value>)",
       white: "rgb(var(--color-white) / <alpha-value>)",
+      black: "rgb(var(--color-black) / <alpha-value>)",
       ascent: {
         1: "rgb(var(--color-ascent1) / <alpha-value>)",
         2: "rgb(var(--color-ascent2) / <alpha-value>)",
