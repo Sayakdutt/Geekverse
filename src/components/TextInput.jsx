@@ -1,11 +1,15 @@
 /* eslint-disable react/display-name */
 import React from "react";
-
+import { useState } from "react";
 const TextInput = React.forwardRef(
   (
     { type, placeholder, styles, label, labelStyles, register, name, error },
     ref
   ) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
     return (
       <div className="w-full flex flex-col mt-2">
         {label && (

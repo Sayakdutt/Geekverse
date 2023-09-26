@@ -21,7 +21,7 @@ const Register = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
   return (
-    <div className="bg-bgColor w-full h-[100vh] flex items-center justify-center p-10">
+    <div className="bg-primary w-full h-[100vh] flex items-center justify-center p-10">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-black rounded-3xl overflow-hidden shadow-2xl justify-center border-4 border-secondary drop-shadow-2xl">
         {/* LEFT */}
         <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-end bg-black">
@@ -29,7 +29,7 @@ const Register = () => {
             <img
               src={F}
               alt="Bg Img"
-              className=" w-full  2xl:w-full 2xl:h-full object-cover"
+              className=" w-full 2xl:w-full 2xl:h-full object-cover"
             />
             {/* styling */}
             <div className="flex justify-content-space-between h-1/4 p-5 bg-black gap-5 ">

@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { NoProfile } from "../assets";
+// import { NoProfile } from "../assets";
+import userProfile from "../assets/userprofile.png";
 import { UpdateProfile } from "../redux/userSlice";
 import { CiLocationOn } from "react-icons/ci";
-import { BsBriefcase, BsFacebook, BsInstagram, BsPersonFillAdd } from "react-icons/bs";
-import {FaTwitterSquare} from "react-icons/fa"
+import {
+  BsBriefcase,
+  BsFacebook,
+  BsInstagram,
+  BsPersonFillAdd,
+} from "react-icons/bs";
+import { FaTwitterSquare } from "react-icons/fa";
 import { LiaEditSolid } from "react-icons/lia";
 import moment from "moment";
-
 
 const ProfileCard = (user) => {
   const { user: data, edit } = useSelector((state) => state.user);
@@ -15,11 +20,11 @@ const ProfileCard = (user) => {
 
   return (
     <div>
-      <div className="w-full bg-primary flex flex-col items-center shadow-sm rounded-xl px-6 py-4">
+      <div className="w-full bg-black border-2 border-secondary flex flex-col items-center shadow-sm rounded-3xl px-6 py-4">
         <div className="w-full flex items-center justify-between border-b pb-5 border-[#66666645]">
           <Link to={`/profile/${user._id}`} className="flex gap-2">
             <img
-              src={user?.profileUrl ?? NoProfile}
+              src={user?.profileUrl ?? userProfile}
               alt={user?.email}
               className="w-14 h-14 object-cover rounded-full"
             />
@@ -71,33 +76,32 @@ const ProfileCard = (user) => {
             <span className="text-ascent-1 text-lg">{user?.views?.length}</span>
           </div>
 
-          <span className="text-base text-blue">
-            {user?.verified ? "Verified Account": "Not verified"}
+          <span className="text-base text-violet">
+            {user?.verified ? "Verified Account" : "Not verified"}
           </span>
 
           <div className="flex items-center justify-between">
-              <span className="text-ascent-2">Joined</span>
-              <span className="text-ascent-1 text-base">
-                {moment(user?.createdAt).fromNow()}
-              </span>
+            <span className="text-ascent-2">Joined</span>
+            <span className="text-ascent-1 text-base">
+              {moment(user?.createdAt).fromNow()}
+            </span>
           </div>
         </div>
         <div className="w-full flex flex-col gap-4 py-4 pb-5">
-            <p className="text-ascent">Social Profile</p>
-            <div className="flex gap-2 items-center text-ascent-2">
-              <BsInstagram className='text-xl text-ascent-1'/>
-              <span>Instagram</span>
-            </div>
-            <div className="flex gap-2 items-center text-ascent-2">
-              <FaTwitterSquare className="text-xl text-ascent-1"/>
-              <span>Twitter</span>
-            </div>
-            <div className="flex gap-2 items-center text-ascent-2">
-              <BsFacebook classN ame="text-xl text-ascent-1"/>
-              <span>Facebook</span>
-            </div>
+          <p className="text-white">Social Profile</p>
+          <div className="flex gap-2 items-center text-ascent-2">
+            <BsInstagram className="text-xl text-ascent-1" />
+            <span>Instagram</span>
+          </div>
+          <div className="flex gap-2 items-center text-ascent-2">
+            <FaTwitterSquare className="text-xl text-ascent-1" />
+            <span>Twitter</span>
+          </div>
+          <div className="flex gap-2 items-center text-ascent-2">
+            <BsFacebook className="text-xl text-ascent-1" />
+            <span>Facebook</span>
+          </div>
         </div>
-
       </div>
     </div>
   );
