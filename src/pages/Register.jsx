@@ -7,7 +7,14 @@ import { useDispatch } from "react-redux";
 import { LoginImg, Frame, F } from "../assets/index";
 import { ImConnection } from "react-icons/im";
 import { AiOutlineInteraction } from "react-icons/ai";
+import {apiRequest} from "../utils"
+
+
 const Register = () => {
+  const [errMsg, setErrMsg] = useState("");
+  const[isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -16,10 +23,32 @@ const Register = () => {
   } = useForm({
     mode: "onChange",
   });
-  const onSubmit = async (data) => {};
-  const [errMsg, setErrMsg] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const dispatch = useDispatch();
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    try {
+        const res = await apiRequest({
+          url: "/auth/register",
+          data: data,
+          method: "POST",
+        });
+        if(res?.status === "falied"){
+          setErrMsg(res);
+        } else {
+          setErrMsg(res);
+          setInterval(()=>{
+            window.location.replace("/login");
+          },5000);
+        }
+        setIsSubmitting(false);
+    }
+    
+    catch(error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
+  };
+
+
   return (
     <div className="bg-primary w-full h-[100vh] flex items-center justify-center p-10">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-black rounded-3xl overflow-hidden shadow-2xl justify-center border-4 border-secondary drop-shadow-2xl">
